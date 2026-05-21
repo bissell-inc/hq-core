@@ -30,7 +30,7 @@ flowchart TD
     SYNC --> B
     SYNC --> C
 
-    subgraph A["Balu — admin"]
+    subgraph A["Dan — admin (tech lead)"]
         A1["~/bissell-hq\n~/.claude/\npush + pull"]
     end
     subgraph B["Dev B — user"]
@@ -47,7 +47,7 @@ flowchart TD
 
 | AD Group | IAM Role | S3 Access | Who |
 |----------|----------|-----------|-----|
-| `bissell-hq-admin` | `adminRole` | read + write all `companies/bissell/*` | Balu, tech leads |
+| `bissell-hq-admin` | `adminRole` | read + write all `companies/bissell/*` | Dan (tech lead), designated admins |
 | `bissell-hq-user` | `userRole` | read only `companies/bissell/*` | All other devs |
 
 Admins curate knowledge/policies → push to S3 → all users pull automatically.
@@ -162,7 +162,7 @@ claude     # open Claude Code — full BISSELL context available
 
 ```mermaid
 sequenceDiagram
-    participant Admin as Balu (admin)
+    participant Admin as Dan (admin / tech lead)
     participant S3 as S3 Vault
     participant DevB as Dev B
     participant DevC as Dev C
